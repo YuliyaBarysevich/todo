@@ -45,12 +45,20 @@ function ToDo(props) {
   return (
     <>
       <header>
-        <h2>
-          There are {list.filter(item => !item.complete).length} Items To Complete
-        </h2>
+        <nav>
+          <ul>
+            <li>Home</li>
+          </ul>
+        </nav>
+        
       </header>
 
-      <section>
+      <main>
+        <h2>
+          To Do List Manager ({list.filter(item => !item.complete).length}) 
+        </h2>
+
+        <section className="main">
 
         <div>
           <TodoForm handleSubmit={_addItem}/>
@@ -60,6 +68,9 @@ function ToDo(props) {
           <TodoList list={list} handleComplete={_toggleComplete} />
         </div>
       </section>
+
+      </main>
+
       </>
 
   )
