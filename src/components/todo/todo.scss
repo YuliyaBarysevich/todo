@@ -1,0 +1,50 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding:0;
+  width: 100%;
+
+  header{
+    background-color: rgb(66, 66, 248);
+    padding: 15px;
+    font-size: 25px;
+    color: white;
+
+    nav{
+      ul {
+        list-style-type: none;
+      }
+    }
+  }
+
+  main{
+    min-width: 960px;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    h2 {
+      background-color: rgb(43, 41, 41);
+      padding: 15px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      color: white;
+  
+    }
+  
+    .main{
+      display: flex;
+      justify-content: space-between;
+  
+      div{
+        width: 95%;
+  
+        .card-body{
+          height: 300px;
+        }
+      }
+    }
+  }
+
+
+  
+}
