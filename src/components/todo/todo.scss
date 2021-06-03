@@ -38,8 +38,17 @@ body, html {
       div{
         width: 95%;
   
-        .card-body{
-          height: 300px;
+        // .card-body{
+        //   height: 300px;
+        // }
+        .todo-list{
+          height: 200px;
+          border-width: 5px;
+          margin-bottom: 25px;
+          
+          .delete{
+            float: right;
+          }
         }
       }
     }
