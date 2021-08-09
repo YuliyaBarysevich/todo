@@ -6,13 +6,14 @@ import axios from 'axios'
 import './todo.scss';
 import useAjax from '../../hooks/ajax.js';
 
-const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
+// const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
+const todoAPI= 'https://barysevich-server-api.herokuapp.com/api/v1/todo'
 
 function ToDo(props) {
   
   const [list, setList] = useState([])
 
-  const [getItems, addNewItem, updateItem, deleteItem] = useAjax()
+  const [getItems, addNewItem, updateItem, deleteItem] = useAjax(list)
 
  
   const _addItem = async (item) => {
@@ -25,7 +26,8 @@ function ToDo(props) {
     let item = list.filter(i => i._id === id)[0] || {};
     if (item._id) {
       item.complete = !item.complete;
-      updateItem(id, item, (update) => setList(list.map(listItem => listItem._id === item._id ? item :listItem)))
+      let list2 = list.map(listItem => listItem._id === item._id ? item : listItem);
+      setList(list2);
     }
   };
 
@@ -37,12 +39,23 @@ function ToDo(props) {
   // GET ALL DATA FROM DB
   // FETCH DATA IS SIDE EFFECT
   useEffect(() => {
-    getItems((items) => setList(items.results))
+    getItems((items) => setList(items))
   }, []);
 
   useEffect(() => {
     if (list.length >= 1) { document.title = `To Do List: ${list.filter(item => !item.complete).length}`};
   }, [list]);
+
+
+  let fullDate = () => {
+    let date = new Date();
+    let day = date.getDate();
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let month = months[date.getMonth()];
+    let days = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let weekDay = days[date.getDay()]
+    return `, ${weekDay} / ${day}th ${month}`
+  }
 
   return (
     <>
@@ -50,15 +63,20 @@ function ToDo(props) {
         <nav>
           <ul>
             <li>Home</li>
+            <li>Settings</li>
           </ul>
         </nav>
         
       </header>
 
       <main>
+        <section class="top">
         <h2>
-          To Do List Manager ({list.filter(item => !item.complete).length}) 
+          To Do List Manager ({list.filter(item => !item.complete).length})
         </h2>
+        <p>{fullDate()}</p>
+
+        </section>
 
         <section className="main">
 

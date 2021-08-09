@@ -20,27 +20,78 @@ function TodoForm(props) {
     <>
     <Form onSubmit={handleSubmit}>
       <Card>
+        <Card.Img src="https://images.pexels.com/photos/4359106/pexels-photo-4359106.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image"/>
+        <Card.ImgOverlay>
         <Card.Body>
           <Card.Title>Add To Do Item</Card.Title>
 
           <Form.Group>
-            <Form.Label>To Do Item</Form.Label>
-            <Form.Control name="text"  placeholder="Add To Do List Item" onChange={handleChange}/>
+            <Form.Label>New Task*</Form.Label>
+            <Form.Control size="lg" name="text"  placeholder="What do you need to do?" onChange={handleChange}/>
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Assigned To</Form.Label>
-            <Form.Control name="assignee" type="text"  placeholder="Assignee Name" onChange={handleChange}/>
+            <Form.Label>Notes</Form.Label>
+            <Form.Control name="notes" type="text"  placeholder="Additional Info" onChange={handleChange}/>
           </Form.Group>
 
+          {/* <Form.Group>
+            <Form.Label>Priority</Form.Label> */}
+            {/* {['checkbox'].map((type) => ( <div key={`inline-${type}`}  className="mb-3">
+            <Form.Check
+            inline
+            label="High !!!"
+            name="priority"
+            type={type}
+            id={`inline-${type}-1`}
+           
+            />
+            <Form.Check
+            inline
+            label="Medium !!"
+            name="priority"
+            type={type}
+            id={`inline-${type}-2`}
+           
+           />
+           <Form.Check
+            inline
+            label="Low !"
+            name="priority"
+            type={type}
+            id={`inline-${type}-2`}
+            
+           />
+           <Form.Check
+            inline
+            label="None"
+            name="priority"
+            type={type}
+            id={`inline-${type}-2`}
+           
+           />
+          </div>
+          ))} */}
+            {/* <Form.Control defaultValue="1" name="priority" type="range" min="1" max="4" onChange={handleChange}/>
+          </Form.Group> */}
           <Form.Group>
-            <Form.Label>Difficulty Rating</Form.Label>
-            <Form.Control name="difficulty" type="range" min="1" max="10" onChange={handleChange}/>
+          <Form.Label>Priority*</Form.Label>
+          
+          <Form.Control as="select" size="sm" name="priority" onChange={handleChange}>
+          <option>Choose Priority of the task</option>
+          <option value="High !!!">High !!!</option>
+          <option value="Medium !!">Medium !!</option>
+          <option value="Low !">Low !</option>
+          <option value="None">None</option>
+            
+          </Form.Control>
+
           </Form.Group>
 
-          <Button variant="primary" type="submit">Add Item</Button>
+          <Button variant="primary" size="lg" type="submit">Add New Task</Button>
 
         </Card.Body>
+        </Card.ImgOverlay>
       </Card>
     </Form>
     </>
@@ -48,43 +99,4 @@ function TodoForm(props) {
 }
 
 export default TodoForm;
-
-// class TodoForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { item: {} };
-//   }
-//   handleInputChange = e => {
-//     this.setState({ item: {...this.state.item, [e.target.name]: e.target.value } })
-//   }
-
-//   handleSubmit = (e) => {
-//     e.preventDefault();
-//     e.target.reset();
-//     this.props.handleSubmit(this.state.item);
-//     const item = {};
-//     this.setState({item})
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <h3>Add Item</h3>
-//         <form onSubmit={this.handleSubmit}>
-//           <label>
-//             <span>To Do Item</span>
-//             <input name="text" placeholder="Add To Do List Item" onChange={this.handleInputChange} />
-//           </label>
-//           <label>
-//             <span>Difficulty Rating</span>
-//             <input defaultValue="1" type="range" min="1" max="5" name="difficulty" onChange={this.handleInputChange} />
-//           </label>
-//           <button>Add Item</button>
-//         </form>
-//       </>
-//     );
-//   }
-// }
-
-
 
