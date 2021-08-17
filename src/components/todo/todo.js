@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 import axios from 'axios'
+import logo from '../../assets/logo-todo.png'
 
 import './todo.scss';
 import useAjax from '../../hooks/ajax.js';
 
-const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
+// const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
+const todoAPI= 'https://barysevich-server-api.herokuapp.com/api/v1/todo'
 
 function ToDo(props) {
   
   const [list, setList] = useState([])
 
-  const [getItems, addNewItem, updateItem, deleteItem] = useAjax()
+  const [getItems, addNewItem, updateItem, deleteItem] = useAjax(list)
 
  
   const _addItem = async (item) => {
@@ -21,44 +23,57 @@ function ToDo(props) {
 
   }
 
-  const _toggleComplete = async (id) => {
-    let item = list.filter(i => i._id === id)[0] || {};
-    if (item._id) {
-      item.complete = !item.complete;
-      updateItem(id, item, (update) => setList(list.map(listItem => listItem._id === item._id ? item :listItem)))
-    }
+  const _putItem = async (id) => {
+    updateItem(id, (update) => setList(update));
   };
 
-  const _deleteOneItem = async (id) => {
-    let item = list.filter(i => i._id === id)[0] || {};
-    deleteItem(id, (remove) => setList(list.filter(listItem => listItem._id !== item._id)))
+  const _deleteItem = async (id) => {
+    deleteItem(id, (del) => setList(del));
   };
 
   // GET ALL DATA FROM DB
   // FETCH DATA IS SIDE EFFECT
   useEffect(() => {
-    getItems((items) => setList(items.results))
+    getItems((items) => setList(items))
   }, []);
 
   useEffect(() => {
     if (list.length >= 1) { document.title = `To Do List: ${list.filter(item => !item.complete).length}`};
   }, [list]);
 
+
+  let fullDate = () => {
+    let date = new Date();
+    let day = date.getDate();
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let month = months[date.getMonth()];
+    let days = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let weekDay = days[date.getDay()]
+    return `${weekDay} / ${day}th ${month}`
+  }
+
   return (
     <>
       <header>
+      {/* <img src={logo} alt="Logo" /> */}
         <nav>
+        <img src={logo} alt="Logo" />
           <ul>
             <li>Home</li>
+            <li>Settings</li>
           </ul>
         </nav>
         
       </header>
 
       <main>
+        <section class="top">
         <h2>
-          To Do List Manager ({list.filter(item => !item.complete).length}) 
+          To Do List Manager ({list.filter(item => !item.complete).length})
         </h2>
+        <p>{fullDate()}</p>
+
+        </section>
 
         <section className="main">
 
@@ -67,11 +82,15 @@ function ToDo(props) {
         </div>
 
         <div>
-          <TodoList list={list} handleComplete={_toggleComplete} handleDelete={_deleteOneItem} />
+          <TodoList list={list} handleComplete={_putItem} handleDelete={_deleteItem} />
         </div>
       </section>
 
       </main>
+
+      <footer>
+        <p><p> 2021 &copy; Barysevich Yuliya</p></p>
+      </footer>
 
       </>
 

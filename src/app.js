@@ -6,9 +6,9 @@ import { SettingsContext } from './context/context.js'
 function App () {
   return (
     <>
-      <SettingsContext>
+      
         <ToDo />
-      </SettingsContext>
+      
     </>  
   )
 }

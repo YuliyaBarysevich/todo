@@ -1,56 +1,160 @@
 body, html {
   height: 100%;
   margin: 0;
-  padding:0;
+  padding: 0;
   width: 100%;
 
   header{
-    background-color: rgb(66, 66, 248);
-    padding: 15px;
+    background-color: #4E2321;
+    padding: 5px;
     font-size: 25px;
     color: white;
 
     nav{
+      margin: 0% 5%;
+      padding: 7px 0;
+      display: flex;
+      justify-content: space-between;
+      img{
+        height: 100px;
+        width: 170px;
+        display: inline-block;
+      }
+
       ul {
         list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        li{
+          padding: 15px;
+        }
       }
     }
   }
 
   main{
-    min-width: 960px;
-    max-width: 1100px;
-    margin: 0 auto;
+    margin: 1.5% 5% 0 5%;
+    // min-width: 960px;
+    // max-width: 1100px;
+    // margin: 0 auto;
+    background-color: #F2D8D5;
+    border-radius: 4px;
+    min-height: 100vh;
 
-    h2 {
-      background-color: rgb(43, 41, 41);
-      padding: 15px;
+    .top{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       margin-top: 20px;
-      margin-bottom: 40px;
-      color: white;
-  
+      margin-bottom: 20px;
+      padding: 15px;
+      
+      h2{
+        background-color: 59524C;
+        color: #704740;
+      }
+
+      p{
+        color: #704740;
+      }
     }
+    
+    
   
     .main{
       display: flex;
       justify-content: space-between;
-  
-      div{
-        width: 95%;
-  
-        // .card-body{
-        //   height: 300px;
-        // }
-        .todo-list{
-          height: 200px;
-          border-width: 5px;
-          margin-bottom: 25px;
-          
-          .delete{
-            float: right;
+
+      form{
+        min-height: 450px;
+        min-width: 400px;
+        div.card{
+          min-height: 450px;
+          min-width: 400px;
+          img{
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+          }
+
+          .card-body{
+            .form-group{
+              margin-bottom: 10px;
+            }
+          }
+          button{
+            background-color: #991B05;
+            border: 1px solid #991B05;
+            margin-top: 20px;
           }
         }
       }
+  
+      div{
+        width: 95%;
+
+        .completeBadge {
+          background-color: #991B05;
+      }
+        .pendingBadge {
+          background-color: rgb(87, 173, 126);
+      }
+  
+        .card{
+          height: 300px;
+          margin-left: 2%;
+        }
+      ul{
+        list-style-type:none;
+        margin:0;
+        padding:0;
+
+        li {
+          .toast{
+            margin-bottom: 1em;
+            min-width: 40vw;
+            cursor: pointer;
+            background-color: #F8F4F1;
+            .badge{
+              margin-right: 2em;
+            }
+
+            .toast-header{
+              display: flex;
+              width: 100%;
+              background-color: #F8F4F1;
+
+              strong {
+                margin-right: auto;
+              }
+              
+              button {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                align-self: flex-end;
+              }
+            }
+          }
+        
+        }
+      }
+
+      }
+    }
+  }
+
+  footer {
+    margin-top: 1.5%;
+    text-align: center;
+    padding: 15px 0px;
+    background-color: #4E2321;
+
+    p{
+      color: white;
     }
   }
 

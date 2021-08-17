@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const useAjax = () => {
-  const todoAPI = "https://api-js401.herokuapp.com/api/v1/todo";
-  // const todoAPI = 'https://barysevich-api-server.herokuapp.com/todo'
+const useAjax = (list) => {
+  // const todoAPI = "https://api-js401.herokuapp.com/api/v1/todo";
+  const todoAPI = 'https://barysevich-server-api.herokuapp.com/api/v1/todo'
 
   const getItems = async (callback) => {
     let allItems = await axios.get(todoAPI)
@@ -16,14 +16,30 @@ const useAjax = () => {
     callback(newItem.data)
   }
 
-  const updateItem = async(id, item, callback) => {
-    let newItem = await axios.put(`${todoAPI}/${id}`, item)
-    callback(newItem.data)
+  const updateItem = async(id, callback) => {
+    try {
+      let item = list.filter((i) => i._id === id)[0] || {};
+      if (item._id) {
+        item.complete = !item.complete;
+        let updatedItem = await axios.put(`${todoAPI}/${id}`, item);
+        let data = updatedItem.data;
+        callback(
+          list.map((listItem) => (listItem._id === data._id ? data : listItem))
+        );
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   const deleteItem = async (id, callback) => {
-    await axios.delete(`${todoAPI}/${id}`)
-    callback()
+    try {
+      let item = list.filter((i) => i._id === id)[0] || {};
+      await axios.delete(`${todoAPI}/${id}`);
+      callback(list.filter((el) => el._id !== item._id));
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return [getItems, addNewItem, updateItem, deleteItem]
