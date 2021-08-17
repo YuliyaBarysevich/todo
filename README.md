@@ -11,3 +11,12 @@
 - As a user, I would like to delete to do items that are no longer needed
 - As a user, I would like to easily mark to do items as completed
 - As a user, I would like to edit an existing to do item
+
+## LAB - Custom Hooks
+
+### Phase 2 Requirements
+
+**User/developer stories:**
+
+- As a user, I would like to be able to add, update, and delete To Do items
+- As a user, I would like my To Do Items to be permanently stored so that I can re-access them at any time, using any device
