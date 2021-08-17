@@ -5,16 +5,28 @@ body, html {
   width: 100%;
 
   header{
-    background-color: #704740;
-    padding: 15px;
+    background-color: #4E2321;
+    padding: 5px;
     font-size: 25px;
     color: white;
 
     nav{
+      margin: 0% 5%;
+      padding: 7px 0;
+      display: flex;
+      justify-content: space-between;
+      img{
+        height: 100px;
+        width: 170px;
+        display: inline-block;
+      }
+
       ul {
         list-style-type: none;
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
 
         li{
           padding: 15px;
@@ -24,12 +36,13 @@ body, html {
   }
 
   main{
-    margin: 2% 5% 0 5%;
+    margin: 1.5% 5% 0 5%;
     // min-width: 960px;
     // max-width: 1100px;
     // margin: 0 auto;
-    background-color: #F2D7D3;
+    background-color: #F2D8D5;
     border-radius: 4px;
+    min-height: 100vh;
 
     .top{
       display: flex;
@@ -41,6 +54,10 @@ body, html {
       
       h2{
         background-color: 59524C;
+        color: #704740;
+      }
+
+      p{
         color: #704740;
       }
     }
@@ -80,10 +97,10 @@ body, html {
         width: 95%;
 
         .completeBadge {
-          background-color: salmon;
+          background-color: #991B05;
       }
         .pendingBadge {
-          background-color: #688;
+          background-color: rgb(87, 173, 126);
       }
   
         .card{
@@ -127,6 +144,17 @@ body, html {
       }
 
       }
+    }
+  }
+
+  footer {
+    margin-top: 1.5%;
+    text-align: center;
+    padding: 15px 0px;
+    background-color: #4E2321;
+
+    p{
+      color: white;
     }
   }
 

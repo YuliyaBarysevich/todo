@@ -15,17 +15,27 @@ function TodoList(props) {
 
   // const maxItemsOnPage = context.maxItems;
 
-  const sortedList = props.list.sort((leftItem, rightItem) => {
-    if(rightItem.difficulty > leftItem.difficulty){
+  // const sortedList = props.list.sort((leftItem, rightItem) => {
+  //   if(rightItem.difficulty > leftItem.difficulty){
+  //     return -1;
+  //   } else if(leftItem.difficulty > rightItem.difficulty){
+  //     return 1;
+  //   } else {
+  //     return 0;
+  //   }
+  // })
+
+  // const filteredList = props.list.filter((item) => !item.complete)
+
+  const filteredList = props.list.sort((leftItem, rightItem) => {
+    if(rightItem.complete > leftItem.complete){
       return -1;
-    } else if(leftItem.difficulty > rightItem.difficulty){
+    }else if(rightItem.complete < leftItem.complete){
       return 1;
-    } else {
+    }else{
       return 0;
     }
   })
-
-  const filteredList = sortedList.filter((item) => !item.complete)
 
     return (
         <section>
@@ -38,7 +48,7 @@ function TodoList(props) {
                     {!item.complete ? "Pending" : "Complete"}
                     </Badge>
                     <strong>Priority: {item.priority}</strong>
-                    <Button className="btn-close" onClose={() => props.handleDelete(item._id)}>X</Button>
+                    <Button className="btn-close" onClick={() => props.handleDelete(item._id)}>X</Button>
                   </Toast.Header>
                   <Toast.Body onClick={() => props.handleComplete(item._id)}>
                     <h3>{item.text}</h3>

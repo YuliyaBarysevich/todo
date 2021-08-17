@@ -78,7 +78,7 @@ function TodoForm(props) {
           <Form.Label>Priority*</Form.Label>
           
           <Form.Control as="select" size="sm" name="priority" onChange={handleChange}>
-          <option>Choose Priority of the task</option>
+          <option>Choose priority of the task</option>
           <option value="High !!!">High !!!</option>
           <option value="Medium !!">Medium !!</option>
           <option value="Low !">Low !</option>

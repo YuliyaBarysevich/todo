@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 import axios from 'axios'
+import logo from '../../assets/logo-todo.png'
 
 import './todo.scss';
 import useAjax from '../../hooks/ajax.js';
@@ -22,18 +23,12 @@ function ToDo(props) {
 
   }
 
-  const _toggleComplete = async (id) => {
-    let item = list.filter(i => i._id === id)[0] || {};
-    if (item._id) {
-      item.complete = !item.complete;
-      let list2 = list.map(listItem => listItem._id === item._id ? item : listItem);
-      setList(list2);
-    }
+  const _putItem = async (id) => {
+    updateItem(id, (update) => setList(update));
   };
 
-  const _deleteOneItem = async (id) => {
-    let item = list.filter(i => i._id === id)[0] || {};
-    deleteItem(id, (remove) => setList(list.filter(listItem => listItem._id !== item._id)))
+  const _deleteItem = async (id) => {
+    deleteItem(id, (del) => setList(del));
   };
 
   // GET ALL DATA FROM DB
@@ -54,13 +49,15 @@ function ToDo(props) {
     let month = months[date.getMonth()];
     let days = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"]
     let weekDay = days[date.getDay()]
-    return `, ${weekDay} / ${day}th ${month}`
+    return `${weekDay} / ${day}th ${month}`
   }
 
   return (
     <>
       <header>
+      {/* <img src={logo} alt="Logo" /> */}
         <nav>
+        <img src={logo} alt="Logo" />
           <ul>
             <li>Home</li>
             <li>Settings</li>
@@ -85,11 +82,15 @@ function ToDo(props) {
         </div>
 
         <div>
-          <TodoList list={list} handleComplete={_toggleComplete} handleDelete={_deleteOneItem} />
+          <TodoList list={list} handleComplete={_putItem} handleDelete={_deleteItem} />
         </div>
       </section>
 
       </main>
+
+      <footer>
+        <p><p> 2021 &copy; Barysevich Yuliya</p></p>
+      </footer>
 
       </>
 
