@@ -69,7 +69,7 @@ function ToDo(props) {
       <main>
         <section class="top">
         <h2>
-          To Do List Manager ({list.filter(item => !item.complete).length})
+          ToDo List Manager ({list.filter(item => !item.complete).length} / {list.length})
         </h2>
         <p>{fullDate()}</p>
 

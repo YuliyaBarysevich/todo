@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const SettingsContext = React.createContext();
+export const SettingContext = React.createContext();
 
-class SettingsProvider extends React.Component {
+function SettingsProvider(props){
 
-  constructor(props){
-    super(props);
-    this.state = {
-      maxItems: 5,
-      showCompletedItems: true,
-      startPage: 1
-    };
+  const [displayCount, setDisplayCount] = useState(3);
+  const [totalTasks, setTotalTasks] = useState(0);
+
+
+  const state = {
+    displayCount,
+    totalTasks,
+    setDisplayCount,
+    setTotalTasks
   }
-  render() {
+ 
     return (
-      <SettingsContext.Provider value={this.state}>
-        {this.props.children}
-      </SettingsContext.Provider>
+      <SettingContext.Provider value={state}>
+        {props.children}
+      </SettingContext.Provider>
     );
-  }
-  
 }
 
 export default SettingsProvider;
