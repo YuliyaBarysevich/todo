@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 body, html {
   height: 100%;
   margin: 0;
@@ -5,7 +7,7 @@ body, html {
   width: 100%;
 
   header{
-    background-color: #4E2321;
+    background-color: #44292d;
     padding: 5px;
     font-size: 25px;
     color: white;
@@ -30,6 +32,7 @@ body, html {
 
         li{
           padding: 15px;
+          font-family: "Nunito";
         }
       }
     }
@@ -54,11 +57,14 @@ body, html {
       
       h2{
         background-color: 59524C;
-        color: #704740;
+        color: rgba(68, 41, 45, 0.8);
+        font-family: "Nunito";
+        font-weight: bold;
       }
 
       p{
-        color: #704740;
+        color: rgba(68, 41, 45, 0.8);
+        font-family: "Nunito";
       }
     }
     
@@ -81,14 +87,63 @@ body, html {
           }
 
           .card-body{
+            
+            .card-title{
+             width: 50%;
+             display: block;
+             text-align: center;
+             margin-bottom: 5%;
+             margin-left: 25%;
+             font-size: 25px;
+             padding: 8px;
+             color: rgb(68, 41, 45);;
+             margin-top: -20px;
+             font-family: "Nunito";
+             font-weight: 800;
+            }
             .form-group{
-              margin-bottom: 10px;
+              margin-bottom: 13px;
+
+              label {
+                font-weight: 500;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              }
+
+              input, select{
+                border: none;
+                background-color: transparent;
+                border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+                font-size: 15px;
+                padding-left: 0;
+              }
+
+              input[name='text']{
+                width: 84%;
+              }
+
+              input[name='notes']{
+                width: 73%;
+              }
+
+              select{
+                width: 62%;
+                color: rgba(0, 0, 0, 0.6);  
+              }
+
+              input:focus{
+                
+                background-color: transparent;
+                
+              }
             }
           }
           button{
             background-color: #991B05;
             border: 1px solid #991B05;
             margin-top: 20px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
           }
         }
       }
@@ -126,9 +181,13 @@ body, html {
               display: flex;
               width: 100%;
               background-color: #F8F4F1;
+              font-family: "Nunito";
+              font-weight: lighter;
+              font-size: 15px;
 
               strong {
                 margin-right: auto;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
               }
               
               button {
@@ -138,6 +197,15 @@ body, html {
                 align-self: flex-end;
               }
             }
+
+            .toast-body{
+              small{
+                font-family: "Nunito";
+                font-size: 15px;
+              }
+            }
+
+            
           }
         
         }
@@ -151,7 +219,7 @@ body, html {
     margin-top: 1.5%;
     text-align: center;
     padding: 15px 0px;
-    background-color: #4E2321;
+    background-color: #44292d;
 
     p{
       color: white;
