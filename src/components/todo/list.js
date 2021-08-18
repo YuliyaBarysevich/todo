@@ -1,31 +1,19 @@
 import React, { useState, useContext } from 'react';
-import { SettingsContext } from '../../context/context.js'
+import { SettingContext } from '../../context/context.js'
+import Pagination from './pagination.js'
 
 // import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Toast from 'react-bootstrap/Toast';
 import Badge from 'react-bootstrap/Badge';
-import Pagination from 'react-bootstrap/Pagination'
 
 function TodoList(props) {
 
-  const context = useContext(SettingsContext);
-  // const [currentPage, setCurrentPage] = useState(1)
+  const context = useContext(SettingContext);
+  const [currentPage, setCurrentPage] = useState(1)
 
-  // const maxItemsOnPage = context.maxItems;
 
-  // const sortedList = props.list.sort((leftItem, rightItem) => {
-  //   if(rightItem.difficulty > leftItem.difficulty){
-  //     return -1;
-  //   } else if(leftItem.difficulty > rightItem.difficulty){
-  //     return 1;
-  //   } else {
-  //     return 0;
-  //   }
-  // })
-
-  // const filteredList = props.list.filter((item) => !item.complete)
 
   const filteredList = props.list.sort((leftItem, rightItem) => {
     if(rightItem.complete > leftItem.complete){
@@ -37,10 +25,17 @@ function TodoList(props) {
     }
   })
 
+  const indexOfLastTask = currentPage * context.displayCount;
+  const indexOfFirstTask = indexOfLastTask - context.displayCount;
+  const currentTasks = filteredList.slice(indexOfFirstTask, indexOfLastTask);
+  context.setTotalTasks(filteredList.length);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
     return (
         <section>
           <ul>
-            {filteredList.map(item => (
+            {currentTasks.map(item => (
               <li key={item._id} className={`complete-${item.complete.toString()}`}>
                 <Toast>
                   <Toast.Header closeButton={false}>
@@ -61,6 +56,10 @@ function TodoList(props) {
               </li>
             ))}
           </ul>
+          <Pagination
+          tasksPerPage={context.displayCount}
+          totalTasks={context.totalTasks}
+          paginate={paginate} />
       </section>
       
     )
