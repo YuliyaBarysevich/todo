@@ -1,8 +1,9 @@
 {
   "name": "todo",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
   "main": "index.js",
+  "homepage": "/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build"
