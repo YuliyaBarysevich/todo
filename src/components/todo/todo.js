@@ -4,7 +4,7 @@ import TodoList from './list.js';
 import axios from 'axios'
 import logo from '../../assets/logo-todo.png'
 
-import './todo.scss';
+import './todo2.scss';
 import useAjax from '../../hooks/ajax.js';
 
 // const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
@@ -67,7 +67,7 @@ function ToDo(props) {
       </header>
 
       <main>
-        <section class="top">
+        <section className="top">
         <h2>
           ToDo List Manager ({list.filter(item => !item.complete).length} / {list.length})
         </h2>
@@ -75,7 +75,7 @@ function ToDo(props) {
 
         </section>
 
-        <section className="main">
+        <section className="to-do-section">
 
         <div>
           <TodoForm handleSubmit={_addItem}/>
@@ -89,7 +89,7 @@ function ToDo(props) {
       </main>
 
       <footer>
-        <p><p> 2021 &copy; Barysevich Yuliya</p></p>
+        <p>2021 &copy; Barysevich Yuliya</p>
       </footer>
 
       </>

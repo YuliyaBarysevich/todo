@@ -33,7 +33,7 @@ function TodoList(props) {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <section>
+        <section className="list">
           <ul>
             {currentTasks.map(item => (
               <li key={item._id} className={`complete-${item.complete.toString()}`}>
