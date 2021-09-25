@@ -155,6 +155,7 @@
                 }
                 .pendingBadge{
                   background-color: rgb(87, 173, 126);
+                  margin-right: 40px;
                 }
 
                 .toast{
@@ -182,7 +183,6 @@
                         cursor: pointer;
                         align-self: flex-end;
                       }
-                    
                   }
                 }
               }
@@ -281,12 +281,11 @@
   *{
     body{
       main{
-        // height: 100vh;
         .to-do-section{
           flex-direction: column;
           justify-content: center;
           align-items: center;
-      
+          height: 100%;
           div{
             width: 90%;
             margin: 25px auto;
