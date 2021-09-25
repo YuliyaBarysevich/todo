@@ -77,11 +77,11 @@ function ToDo(props) {
 
         <section className="to-do-section">
 
-        <div>
+        <div className="main-part">
           <TodoForm handleSubmit={_addItem}/>
         </div>
 
-        <div>
+        <div className="main-part">
           <TodoList list={list} handleComplete={_putItem} handleDelete={_deleteItem} />
         </div>
       </section>

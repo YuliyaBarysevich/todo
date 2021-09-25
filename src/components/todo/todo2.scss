@@ -242,7 +242,7 @@
                     margin: 3px;
                     
                     label{
-                      font-size: 12px;
+                      font-size: 15px;
                       margin: 4px;
                     }
                     input{
@@ -275,6 +275,73 @@
     }
   }
 }
+
+@media screen and (min-width: 361px) and (max-width: 1020px){
+
+  *{
+    body{
+      main{
+        // height: 100vh;
+        .to-do-section{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      
+          div{
+            width: 90%;
+            margin: 25px auto;
+      
+            .card{
+              .card-img-overlay{
+                padding: 0;
+                .card-title{
+                  margin: 0 auto 5% auto;
+                  padding: 0;
+                  font-size: 24px;
+                }
+                .card-body{
+                  margin: 0;
+                  padding: 0;
+                  form{
+                    .form-group{
+                      margin-bottom: 15px;
+                      label{
+                        font-size: 1rem;
+                        font-weight: 500;
+                      }
+                    }
+                    button{
+                      margin-top: 20px;
+                    }
+                  }
+                }
+
+              }
+            }
+      
+            .list{
+              ul{
+                padding-left: 0;
+                li{
+                  .toast-header{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                  }
+                  .toast-body{
+                    margin: 0;
+                    padding: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
 
 
 
