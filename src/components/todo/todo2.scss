@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*{
+  box-sizing: border-box;
+
+  body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    // Header
+
+    header{
+      background-color: #44292d;
+      padding: 5px;
+      font-size: 25px;
+      color: #fff;
+
+      nav{
+        margin: 0% 5%;
+        padding: 7px 0;
+        display: flex;
+        justify-content: space-between;
+
+        img{
+          height: 100px;
+          width: 170px;
+          display: inline-block;
+        }
+
+        ul{
+          list-style-type: none;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          li{
+            padding: 15px;
+            font-family: "Nunito", sans-serif;
+          }
+        }
+      }
+    }
+
+    // Main
+
+    main{
+      width: 90%;
+      min-height: 100vh; //???????
+      margin: 35px auto;
+      padding: 20px;
+      background-color: #F2D8D5;
+      border-radius: 4px;
+
+      .top{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        padding: 15px;
+
+        h2, p{
+          color: rgba(68, 41, 45, 0.8);
+          font-family: "Nunito", sans-serif;
+          font-weight: bold;
+        }
+      }
+      .to-do-section{
+        display: flex;
+        justify-content: space-between;
+
+        div{
+          width: 95%;
+
+          .card{
+            // min-height: 440px;
+            .card-title{
+              width: 50%;
+              display: block;
+              text-align: center;
+              margin-bottom: 5%;
+              margin-left: 25%;
+              font-size: 25px;
+              padding: 8px;
+              color: rgb(68, 41, 45);;
+              font-family: "Nunito";
+              font-weight: 800;
+            }
+
+            .card-body{
+              form{
+                height: 100%;
+                width: 100%;
+
+                .form-group{
+                  margin-bottom: 13px;
+
+                  label{
+                    font-weight: 500;
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                  }
+
+                  input, select{
+                    border: none;
+                    background-color: transparent;
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                    font-size: 15px;
+                    padding-left: 0;
+                  }
+
+                  input[name='text']{
+                    width: 82%;
+                  }
+    
+                  input[name='notes']{
+                    width: 70%;
+                  }
+
+                  select{
+                    width: 64%;
+                    color: rgba(0, 0, 0, 0.6);  
+                  }
+
+                  input:focus{
+                    background-color: transparent;
+                  }
+    
+                  select:hover{
+                    cursor: pointer;
+                  }
+
+                }
+
+                button{
+                  background-color: #991B05;
+                  border: 1px solid #991B05;
+                  width: 40%;
+                  margin: 20px auto;
+                  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+                }
+              }
+            }
+          }
+
+          //List
+          .list{
+            ul{
+              list-style: none;
+
+              li{
+                .completeBadge{
+                  background-color: #991B05;
+                  margin-right: 40px;
+                }
+                .pendingBadge{
+                  background-color: rgb(87, 173, 126);
+                }
+
+                .toast{
+                  margin-bottom: 1em;
+                  height: 140px;
+                  cursor: pointer;
+                  background-color: #F8F4F1;
+
+                  .toast-header{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    font-family: "Nunito";
+                    font-weight: lighter;
+                    font-size: 15px;
+
+                      strong {
+                        margin-right: auto;
+                        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                      }
+                    
+                      button {
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        align-self: flex-end;
+                      }
+                    
+                  }
+                }
+              }
+            }
+          }
+
+          .pagination{
+            display: flex;
+            justify-content: center;
+            
+            li{
+              margin: 5px;
+
+              a{
+                border: 2px rgba(68, 41, 45, 0.8) solid;
+                color: #44292d;
+              }
+
+              a:hover{
+                background-color: rgba(68, 41, 45, 0.8);
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+    // Footer
+    footer {
+      text-align: center;
+      padding: 15px 0px;
+      background-color: #44292d;
+  
+      p{
+        color: white;
+      }
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 961px) and (max-width: 1360px) {
+  *{
+    body{
+      main{
+        .to-do-section{
+          div{
+            .card{
+              .card-title{
+                font-size: 17px;
+                margin-bottom: 0;
+              }
+              .card-body{
+                form{
+                  .form-group{
+                    margin: 3px;
+                    
+                    label{
+                      font-size: 15px;
+                      margin: 4px;
+                    }
+                    input{
+                      padding: 0;
+                    }
+                    input[name='text']{
+                      width: 77%;
+                    }
+      
+                    input[name='notes']{
+                      width: 65%;
+                    }
+  
+                    select{
+                      width: 61%; 
+                    }
+                  }
+                  button{
+                    font-size: 12px;
+                    width: 40%;
+                    margin: 4px auto;
+                    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 1020px){
+
+  *{
+    body{
+      main{
+        // height: 100vh;
+        .to-do-section{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      
+          div{
+            width: 90%;
+            margin: 25px auto;
+      
+            .card{
+              .card-img-overlay{
+                padding: 0;
+                .card-title{
+                  margin: 0 auto 5% auto;
+                  padding: 0;
+                  font-size: 24px;
+                }
+                .card-body{
+                  margin: 0;
+                  padding: 0;
+                  form{
+                    .form-group{
+                      margin-bottom: 15px;
+                      label{
+                        font-size: 1rem;
+                        font-weight: 500;
+                      }
+                    }
+                    button{
+                      margin-top: 20px;
+                    }
+                  }
+                }
+
+              }
+            }
+      
+            .list{
+              ul{
+                padding-left: 0;
+                li{
+                  .toast-header{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                  }
+                  .toast-body{
+                    margin: 0;
+                    padding: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
+
+
