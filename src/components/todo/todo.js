@@ -47,7 +47,7 @@ function ToDo(props) {
     let day = date.getDate();
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let month = months[date.getMonth()];
-    let days = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let days = ["Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday"]
     let weekDay = days[date.getDay()]
     return `${weekDay} / ${day}th ${month}`
   }
