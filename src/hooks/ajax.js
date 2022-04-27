@@ -2,7 +2,7 @@ import axios from "axios";
 
 const useAjax = (list) => {
   // const todoAPI = "https://api-js401.herokuapp.com/api/v1/todo";
-  const todoAPI = 'https://barysevich-server-api.herokuapp.com/api/v1/todo'
+  const todoAPI = 'https://barysesevich-api.herokuapp.com/api/v1/todo'
 
   const getItems = async (callback) => {
     let allItems = await axios.get(todoAPI)
